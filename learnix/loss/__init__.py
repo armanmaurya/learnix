@@ -1,1 +1,1 @@
-from mean_squared_error import mean_squared_error
+from .mean_squared_error import mean_squared_error
