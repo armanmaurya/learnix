@@ -1,29 +1,30 @@
-class LinearRegression:
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from learnix.loss import mean_squared_error
+
+class SimpleLinearRegression:
     def __init__(self):
-        self.weights = None
-        self.bias = None
+        self.slope = np.random.rand()
+        self.intercept = np.random.rand()
 
-    def fit(self, X, y, epochs=1000, learning_rate=0.01):
-        n_samples, n_features = len(X), len(X[0])
-        self.weights = [0.0] * n_features
-        self.bias = 0.0
+    def fit(self, X: np.ndarray, y: np.ndarray):
+        if X.shape != y.shape:
+            raise ValueError("X and y must have the same shape.")
+        
+        prediction = self.predict(X)
 
-        for _ in range(epochs):
-            y_predicted = [self._predict_single(x) for x in X]
-            dw = [0.0] * n_features
-            db = 0.0
+        lr = 0.01
+        for _ in range(200):
+            d_slope = -2 * np.mean(X * (y - prediction))
+            d_intercept = -2 * np.mean(y - prediction)
 
-            for i in range(n_samples):
-                error = y_predicted[i] - y[i]
-                for j in range(n_features):
-                    dw[j] += (1 / n_samples) * error * X[i][j]
-                db += (1 / n_samples) * error
+            self.slope -= lr * d_slope
+            self.intercept -= lr * d_intercept
 
-            self.weights = [w - learning_rate * d for w, d in zip(self.weights, dw)]
-            self.bias -= learning_rate * db
+            # print("slope", self.slope, "d_slope", d_slope)
 
-    def predict(self, X):
-        return [self._predict_single(x) for x in X]
-
-    def _predict_single(self, x):
-        return sum(w * xi for w, xi in zip(self.weights, x)) + self.bias
+            prediction = self.predict(X)
+            
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        return self.slope * X + self.intercept
