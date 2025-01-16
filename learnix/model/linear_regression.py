@@ -22,8 +22,6 @@ class SimpleLinearRegression:
             self.slope -= lr * d_slope
             self.intercept -= lr * d_intercept
 
-            # print("slope", self.slope, "d_slope", d_slope)
-
             prediction = self.predict(X)
             
     def predict(self, X: np.ndarray) -> np.ndarray:

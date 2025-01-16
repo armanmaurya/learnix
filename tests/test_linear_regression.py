@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 import matplotlib.pyplot as plt
-from learnix.model.linear_regression import SimpleLinearRegression
+from learnix.model import SimpleLinearRegression
 
 def test_simple_linear_regression():
     # Generate some random data
