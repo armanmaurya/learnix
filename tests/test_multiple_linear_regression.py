@@ -1,17 +1,16 @@
 import unittest
 import numpy as np
-import matplotlib.pyplot as plt
-from learnix.model import SimpleLinearRegression
+from learnix.model import MultipleLinearRegression
 
-class TestSimpleLinearRegression(unittest.TestCase):
+class TestMultipleLinearRegression(unittest.TestCase):
 
-    def test_simple_linear_regression(self):
+    def test_multiple_linear_regression(self):
         # Generate some random data
-        X = np.random.rand(100)
-        y = 2 * X + 3 + np.random.randn(100) * 0.1  # y = 2X + 3 + noise
+        X = np.random.rand(100, 3)
+        y = 2 * X[:, 0] + 3 * X[:, 1] + 4 * X[:, 2] + 5 + np.random.randn(100) * 0.1  # y = 2X1 + 3X2 + 4X3 + 5 + noise
 
         # Initialize and fit the model
-        model = SimpleLinearRegression()
+        model = MultipleLinearRegression()
         model.fit(X, y)
 
         # Make predictions
@@ -20,7 +19,7 @@ class TestSimpleLinearRegression(unittest.TestCase):
         # Check if predictions are close to actual values
         self.assertTrue(np.allclose(predictions, y, atol=0.5), "Predictions are not close to actual values")
 
-        print("TestSimpleLinearRegression: Test passed!")
+        print("TestMultipleLinearRegression: Test passed!")
 
 if __name__ == '__main__':
     unittest.main()

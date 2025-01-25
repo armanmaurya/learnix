@@ -26,7 +26,7 @@ class MultipleLinearRegression:
     def predict(self, X: np.ndarray) -> np.ndarray:
         n_samples = X.shape[0]
         X = np.c_[np.ones((n_samples, 1)), X]
-        print("print", self.coefficients)
+        # print("print", self.coefficients)
         return np.dot(X, self.coefficients)
 
     def mean_squared_error(self, y_true: np.ndarray, y_pred: np.ndarray) -> float:
