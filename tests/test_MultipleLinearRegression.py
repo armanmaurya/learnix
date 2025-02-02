@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from cognilib.model import MultipleLinearRegression
+from cognilib.model.multiple_linear_regression import MultipleLinearRegression
 
 class TestMultipleLinearRegression(unittest.TestCase):
 

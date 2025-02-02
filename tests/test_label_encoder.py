@@ -1,5 +1,5 @@
 import unittest
-from learnix.preprocessing import LabelEncoder
+from cognilib.preprocessing import LabelEncoder
 
 class TestLabelEncoder(unittest.TestCase):
 

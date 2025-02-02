@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from learnix.loss import mean_squared_error
+from cognilib.loss import mean_squared_error
 
 class SimpleLinearRegression:
     def __init__(self):

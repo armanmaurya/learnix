@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from learnix.loss import mean_squared_error
+from cognilib.loss import mean_squared_error
 
 class TestMeanSquaredError(unittest.TestCase):
 

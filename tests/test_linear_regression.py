@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 import matplotlib.pyplot as plt
-from learnix.model import SimpleLinearRegression
+from cognilib.model import SimpleLinearRegression
 
 class TestSimpleLinearRegression(unittest.TestCase):
 
